@@ -21,4 +21,13 @@ public class Message {
      * 该 Message 使用哪个 Handler 进行发送的
      */
     Handler target;
+
+    /**
+     * 回收方法
+     */
+    public void recyle(){
+        obj = null;
+        next = null;
+        target = null;
+    }
 }
