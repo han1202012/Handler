@@ -36,6 +36,16 @@ public class Handler {
     public void sendMessage(Message msg){
         // 为消息设置发送的 Handler
         msg.target = this;
+        // 向消息队列中放入要执行的消息
+        mQueue.enqueueMessage(msg);
     }
 
+
+    /**
+     * 执行消息对应的任务
+     * @param next
+     */
+    public void handleMessage(Message next) {
+
+    }
 }
