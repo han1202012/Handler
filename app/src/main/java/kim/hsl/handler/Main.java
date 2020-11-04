@@ -23,6 +23,5 @@ public class Main {
         }.start();
 
         Looper.loop();
-        Looper.loop();
     }
 }
