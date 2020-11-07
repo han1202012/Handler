@@ -25,14 +25,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun handler(){
-        // 初始化, 之后马上启动
+        // 1 . 初始化, 之后马上启动
         handlerThread = HandlerThread("handler")
         handlerThread.start()
 
-        // 获取 Looper
+        // 2 . 获取 Looper
         looper = handlerThread.looper
 
-        // 获取 消息队列 MessageQueue
+        // 3 . 获取 消息队列 MessageQueue
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             messageQueue = looper.queue
         }else{
@@ -44,22 +44,24 @@ class MainActivity : AppCompatActivity() {
             messageQueue = mQueue.get(looper) as MessageQueue
         }
 
-        // 注册 IdleHandler
+        // 4 . 注册 IdleHandler
         messageQueue.addIdleHandler {
             Log.i(TAG, "空闲任务")
             // 注意这里返回 true, 表示每次空闲任务都执行一次
             true
         }
 
+        // 5 . 初始化 Handler
         handler = Handler(looper, {msg: Message ->
             Log.i(TAG, "运行任务 ${msg.what}")
             true
         })
 
-        // 线程中发送消息
+        // 6 . 子线程中发送消息 0
         thread (start = true) {
             handler.sendEmptyMessage(0)
         }
+        // 7 . 主线程发送消息 1
         handler.sendEmptyMessage(1)
 
     }
