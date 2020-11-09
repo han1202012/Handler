@@ -20,11 +20,43 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
-# 保留 Main 类及成员
--keep public class kim.hsl.handler.Main
+# 保留 MainActivity 类名
+#-keep public class kim.hsl.handler.MainActivity
+
+# 保留 MainActivity 类名,成员变量名称
+#-keep public class kim.hsl.handler.MainActivity{
+#    *;
+#}
 
 # 保留 Keep 注解
--keep public class kim.hsl.handler.Keep
+#-keep public class kim.hsl.handler.Keep
 
 # 保留被 Keep 注解修饰的类
--keep @kim.hsl.handler.Keep class * {*;}
+#-keep @kim.hsl.handler.Keep class * {*;}
+
+# 指定 kim.hsl.handler.Main 类所有成员不被混淆
+#-keepclassmembers class kim.hsl.handler.Handler
+
+# 指定 kim.hsl.handler.Main 类 public void *(*) 成员不被混淆
+#-keepclassmembers class kim.hsl.handler.Handler{
+#    public void *(*);
+#}
+
+# 保留 kim.hsl.handler.Handler 类名 , 成员名会被混淆
+#-keepclasseswithmembernames class kim.hsl.handler.Handler
+
+# 保留 kim.hsl.handler.Handler 类名 , 成员名称
+#-keepclasseswithmembernames class kim.hsl.handler.Handler{
+#    *;
+#}
+
+# 保留 kim.hsl.handler.Handler 类名 , 成员名称
+#-keepclasseswithmembernames class kim.hsl.handler.Handler{
+#    *;
+#}
+
+
+# 保留 kim.hsl.handler.Handler native 方法名称
+-keepclasseswithmembernames class kim.hsl.handler.Handler{
+    native <methods>;
+}
