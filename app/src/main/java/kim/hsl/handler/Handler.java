@@ -1,5 +1,6 @@
 package kim.hsl.handler;
 
+@Keep
 public class Handler {
 
     /**

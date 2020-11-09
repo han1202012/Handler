@@ -19,3 +19,12 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# 保留 Main 类及成员
+-keep public class kim.hsl.handler.Main
+
+# 保留 Keep 注解
+-keep public class kim.hsl.handler.Keep
+
+# 保留被 Keep 注解修饰的类
+-keep @kim.hsl.handler.Keep class * {*;}
