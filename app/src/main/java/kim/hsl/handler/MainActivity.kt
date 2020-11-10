@@ -24,6 +24,8 @@ class MainActivity : AppCompatActivity() {
         val h = kim.hsl.handler.Handler()
         h.sendMessage(kim.hsl.handler.Message())
 
+        handler.looper
+
         handler()
     }
 

@@ -57,6 +57,12 @@
 
 
 # 保留 kim.hsl.handler.Handler native 方法名称
--keepclasseswithmembernames class kim.hsl.handler.Handler{
-    native <methods>;
-}
+#-keepclasseswithmembernames class kim.hsl.handler.Handler{
+#    native <methods>;
+#}
+
+# 保留行数
+-keepattributes SourceFile,LineNumberTable
+-renamesourcefileattribute H
+
+
