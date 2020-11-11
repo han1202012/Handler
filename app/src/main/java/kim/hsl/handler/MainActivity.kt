@@ -21,10 +21,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val h = kim.hsl.handler.Handler()
-        h.sendMessage(kim.hsl.handler.Message())
+        //val h = kim.hsl.handler.Handler()
+        //h.sendMessage(kim.hsl.handler.Message())
 
-        handler.looper
+        //handler.looper
 
         handler()
     }
